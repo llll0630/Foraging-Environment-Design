@@ -1,13 +1,13 @@
 For how to use the playback API:<br>
 get_grid() -- 把墙体信息暴露出来<br>
 load_state(state, grid) -- 把存下来的信息返回环境内部<br>
-# ---- 录制时（负责pipeline的同学的代码里）----<br>
+# 录制时（pipeline里<br>
 env = ForagingEnv()<br>
 state = env.reset(difficulty=2)<br>
 grid = env.get_grid()          # 存一次，整局都用这个grid<br>
-# 把 grid 写进 meta.json<br>
+#把grid写进meta.json<br>
 
-# ---- replay时 ----<br>
+# replay时<br>
 env = ForagingEnv()<br>
 for step_record in log:<br>
     env.load_state(step_record["env_state"], grid)   # 还原到那一步<br>
